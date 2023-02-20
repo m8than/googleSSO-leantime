@@ -44,7 +44,7 @@ class googleSSO
 
                 $email = $token_data['email'];
 
-                if (strpos($email, $this->settings->getSetting("googleSSO.emailDomain")) !== false) {
+                if (strpos($email, $this->settings->getSetting("googleSSO.emailDomain")) !== false || $this->settings->getSetting("googleSSO.emailDomain") == "") {
                     $userRepo = new \leantime\domain\repositories\users();
                     return $userRepo->getUserByEmail($email);
                 }

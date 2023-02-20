@@ -45,7 +45,8 @@
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    <label>Restrict Email Domain</label>
+                    <label>Restrict Email Domain (leave blank for no restriction)
+                    </label>
                 </div>
                 <div class="col-md-8">
                     <input type="text" name="emailDomain" id="emailDomain" value="<?=$emailDomain?>" class="pull-left" />

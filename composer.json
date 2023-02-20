@@ -1,0 +1,24 @@
+{
+    "name": "leantime/googlesso",
+    "description": "Provides Google SSO support",
+    "version": "0.1",
+    "screenshot": "/images/screenshot.png",
+    "authors": [
+        {
+            "name": "Nathan Wilce",
+            "email": "me@nwilce.co.uk"
+        }
+    ],
+    "homepage": "https://leantime.io",
+    "type": "plugin",
+    "keywords": [
+        "google",
+        "sso",
+        "single sign-on",
+        "single sign on"
+    ],
+    "license": "MIT",
+    "require": {
+        "google/apiclient": "^2.13"
+    }
+}

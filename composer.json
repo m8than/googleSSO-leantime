@@ -1,15 +1,14 @@
 {
     "name": "leantime/googlesso",
     "description": "Provides Google SSO support",
-    "version": "0.1",
-    "screenshot": "/images/screenshot.png",
+    "version": "1.0",
     "authors": [
         {
             "name": "Nathan Wilce",
             "email": "me@nwilce.co.uk"
         }
     ],
-    "homepage": "https://leantime.io",
+    "homepage": "https://github.com/m8than/googleSSO-leantime",
     "type": "plugin",
     "keywords": [
         "google",

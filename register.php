@@ -10,16 +10,16 @@
 function attemptLogin($params)
 {
     if (!isset($params['redirect'])) return; // not a google login
-    
+
     $query = parse_url($params['redirect'])['query'];
     parse_str($query, $data);
 
     if (!isset($data['code'])) return; // not a google login
-    
+
     $googleSSO = new \leantime\plugins\services\googleSSO();
     $authService = \leantime\domain\services\auth::getInstance();
     $tpl = new \leantime\core\template();
-    
+
     $user = $googleSSO->attemptLogin($data);
 
     if ($user) {
@@ -27,7 +27,7 @@ function attemptLogin($params)
         $authService->setUserSession($user);
         // redirect to dashboard
         $tpl->setNotification("Login successful", "success");
-        $tpl->redirect(BASE_URL."/");            
+        $tpl->redirect(BASE_URL."/");
     } else {
         // redirect to login page with error
         $tpl->setNotification("Login failed", "error");
@@ -46,41 +46,47 @@ function showGoogleLogin($payload)
             width:100%;
         }
         .google-btn {
-            width: 184px;
-            height: 42px;
-            background-color: #4285f4;
-            border-radius: 2px;
-            box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+            width: 100%;
+            height: 29px;
+            background-color: #fff;
+            border-radius: var(--box-radius);
+            border: 1px solid var(--main-border-color);
             margin: 0 auto;
         }
         .google-btn .google-icon-wrapper {
             position: absolute;
             margin-top: 1px;
-            margin-left: 1px;
-            width: 40px;
-            height: 40px;
+            margin-left: 3px;
+            width: 28px;
+            height: 26px;
             border-radius: 2px;
             background-color: #fff;
         }
         .google-btn .google-icon {
-            width: 24px;
-            height: 24px;
-            margin: 8px !important;
+            width: 20px;
+            height: 20px;
+            margin: 3px !important;
         }
         .google-btn .btn-text {
-            float: right;
-            margin: 11px 11px 0 0;
-            color: #fff;
+            margin: 3px 8px 0 0;
+            color: #555;
             font-size: 14px;
             letter-spacing: 0.2px;
-            font-family: "Roboto";
+            font-family: var(--primary-font-family);
+            /* padding-left: 38px; */
+            text-align: center;
         }
         .google-btn:hover {
-            box-shadow: 0 0 6px #4285f4;
+            border-color:var(--primary-color);
             cursor:pointer;
         }
         .google-btn:active {
-            background: #1669F2;
+            background: var(--primary-color);
+
+        }
+
+        .google-btn:active .btn-text {
+            color:#fff;
         }
 
         @import url(https://fonts.googleapis.com/css?family=Roboto:500);
